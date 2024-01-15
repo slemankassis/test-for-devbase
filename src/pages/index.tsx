@@ -43,13 +43,13 @@ export default function Home() {
       </Head>
       <main>
         <div className="mx-3">
-          <h1 className="text-gray-800 font-bold text-3xl my-2 mx-1.5">
+          <h1 className="text-gray-800 font-bold text-3xl my-6 mx-4">
             Top 5 Github Users
           </h1>
-          <p className="text-custom-gray font-roboto text-base font-normal md:mb-[40px] mb-[23px] mx-1.5">
+          <p className="text-custom-gray font-roboto text-base font-normal md:mb-[40px] mb-[23px] mx-4">
             Tap the username to see more information
           </p>
-          <ul className="flex flex-wrap">
+          <ul className="flex flex-wrap m-2">
             {topUsers.map((user) => (
               <li
                 key={user.id}
