@@ -1,10 +1,7 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./index.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export default function Home() {
   const [topUsers, setTopUsers] = useState([]);
@@ -44,14 +41,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div>
-          <h1 className="title">Top 5 Github Users</h1>
-          <p className="info">Tap the username to see more information</p>
-          <ul>
+      <main>
+        <div className="mx-3">
+          <h1 className="text-gray-800 font-bold text-3xl my-2 mx-1.5">
+            Top 5 Github Users
+          </h1>
+          <p className="text-custom-gray font-roboto text-base font-normal md:mb-[40px] mb-[23px] mx-1.5">
+            Tap the username to see more information
+          </p>
+          <ul className="flex flex-wrap">
             {topUsers.map((user) => (
-              <li key={user.id}>
-                <a href={`${user.login}`}>{user.login}</a>
+              <li
+                key={user.id}
+                className="cursor-pointer hover:bg-blue-600 m-[5px] bg-blue-500 hover:bg-blue-700 text-white font-bold md:py-[17px] md:px-[50px] rounded py-[9px] px-[19px] text-sm md:text-base"
+              >
+                <Link href={`/${user.login}`}>{user.login}</Link>
               </li>
             ))}
           </ul>
