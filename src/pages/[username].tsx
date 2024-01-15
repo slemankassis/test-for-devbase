@@ -29,7 +29,7 @@ const Person: React.FC = () => {
       }
     };
 
-    fetchUser();
+    if (username) fetchUser();
   }, [username]);
 
   return (
